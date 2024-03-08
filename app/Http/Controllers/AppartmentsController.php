@@ -17,7 +17,7 @@ class AppartmentsController extends Controller
     public function index(Request $request)
     {
         // code for illustration 
-        return Appartments::all();
+        return Appartments::with('MediaManually')->get();
     }
 
     /**

@@ -21,11 +21,11 @@ Route::post('/signup', [AuthController::class, 'sign_up']);
 Route::post('/login', [AuthController::class, 'login']);
 
 
-Route::get('/appartments', [AppartmentsController::class, 'HomePageList']);
+Route::get('/appartment', [AppartmentsController::class,'index']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // private post routes
-    Route::resource('appartment', AppartmentsController::class);
+    Route::resource('appartment', AppartmentsController::class)->only('store','update','destroy');
     Route::post('/logout', [AuthController::class, 'logout']);    
 });
